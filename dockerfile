@@ -9,15 +9,15 @@ LABEL maintainer="Veloxity#0001"
 
 ENV WINEDEBUG=fixme-all
 ENV WINEARCH=win64
-ENV WINEPREFIX=/home/container/.Wine
+ENV WINEPREFIX=/home/container/.wine
 
 COPY installwine.sh /installwine.sh
-RUN chmod +x /installwine.sh
+RUN chmod +x /installwine.sh 
 RUN /installwine.sh && rm /installwine.sh
 
 RUN adduser --disabled-password --gecos "" --home /home/container container
 USER container
-ENV USER=container HOME=/home/container
+ENV  USER=container HOME=/home/container
 
 WORKDIR /home/container
 
